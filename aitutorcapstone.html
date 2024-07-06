@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Networks Tutor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            background-color: #333;
+            color: white;
+        }
+        .content {
+            margin: 2rem;
+        }
+        .welcome-message {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .pdf-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        iframe.pdf-viewer {
+            width: 80%;
+            height: 500px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to your AI Networks Tutor</h1>
+    </header>
+    <div class="content">
+        <div class="welcome-message">Explore the fascinating world of Computer Networks with guidance from our AI Tutor.</div>
+        <p>The book <strong>Computer Networking: A Top-Down Approach</strong> by Professors <strong>James F. Kurose</strong> and <strong>Keith W. Ross</strong> is a comprehensive resource for understanding the complexities of computer networking. This textbook is widely used in both undergraduate and graduate courses and has been translated into 14 languages, making it an invaluable tool for students worldwide.</p>
+        <p><strong>James F. Kurose</strong> is a Distinguished University Professor of Computer Science at the University of Massachusetts Amherst. He has extensive experience in teaching and research in computer networking and has held numerous visiting scientist positions in the US and abroad.</p>
+        <p><strong>Keith W. Ross</strong> is the Leonard J. Shustek Chair Professor in Computer Science at the Polytechnic Institute of NYU. His research interests include Internet measurement, peer-to-peer systems, social networks, and privacy. He is also the co-founder and original CEO of Wimba, a company developing online multimedia applications for e-learning.</p>
+        <div class="pdf-container">
+            <iframe class="pdf-viewer" src="book.pdf"></iframe>
+        </div>
+    </div>
+    
+    <iframe src="https://www.openassistantgpt.io/embed/cly9eao9s0001ase84vq9yqqk/button?chatbox=false"
+        style="z-index: 50; margin-right: 1rem; margin-bottom: 1rem; position: fixed; right: 0; bottom: 0; width: 56px; height: 56px; border: 0; border: 2px solid #e2e8f0; border-radius: 50%; color-scheme: none; background: none; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);"
+        id="openassistantgpt-chatbot-button-iframe"></iframe>
+    <iframe src="https://www.openassistantgpt.io/embed/cly9eao9s0001ase84vq9yqqk/window?chatbox=false&withExitX=true"
+        style="z-index: 50; margin-right: 1rem; margin-bottom: 6rem; display: none; position: fixed; right: 0; bottom: 0; pointer-events: none; overflow: hidden; height: 65vh; border: 2px solid #e2e8f0; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); width: 30rem;"
+        allowfullscreen id="openassistantgpt-chatbot-iframe"></iframe>
+
+    <script>
+        window.addEventListener("message", function (t) {
+            var e = document.getElementById("openassistantgpt-chatbot-iframe"),
+                s = document.getElementById("openassistantgpt-chatbot-button-iframe");
+            "openChat" === t.data && (console.log("Toggle chat visibility"), e && s ? (e.contentWindow.postMessage("openChat", "*"), s.contentWindow.postMessage("openChat", "*"), e.style.pointerEvents = "auto", e.style.display = "block", window.innerWidth < 640 ? (e.style.position = "fixed", e.style.width = "100%", e.style.height = "100%", e.style.top = "0", e.style.left = "0", e.style.zIndex = "9999") : (e.style.position = "fixed", e.style.width = "30rem", e.style.height = "65vh", e.style.bottom = "0", e.style.right = "0", e.style.top = "", e.style.left = "")) : console.error("iframe not found")),
+                "closeChat" === t.data && e && s && (e.style.display = "none", e.style.pointerEvents = "none", e.contentWindow.postMessage("closeChat", "*"), s.contentWindow.postMessage("closeChat", "*"))
+        });
+    </script>
+</body>
+</html>
